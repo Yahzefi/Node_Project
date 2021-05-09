@@ -9,11 +9,20 @@ const app = express();
 //     res.sendFile(path.join(__dirname, 'client', 'index.html'))
 // })
 
-app.get('/api/members', (req, res) => {
-    res.json(members);
+// app.get('/api/members', (req, res) => {
+//     res.json(members);
+// })
+
+app.use(express.json());
+// app.use(express.urlencoded({extended: false}))
+
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'about.html'))
 })
 
 app.use(express.static(path.join(__dirname, 'client')));
+
+app.use('/api/members', require('./Routes/member_route'));
 
 const PORT = process.env.PORT || 5000
 
