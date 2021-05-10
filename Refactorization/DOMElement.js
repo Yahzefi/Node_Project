@@ -6,8 +6,15 @@ export class DOMElement {
     }
     generateElement(attrInfo) {
         let newElement = document.createElement(this.type);
-        if(attrInfo) newElement.setAttribute(attrInfo.type, attrInfo.payload);
-        if(attrInfo.payload.addString) newElement.textContent = attrInfo.payload.addString;
+        this.id == null ? '' : newElement.id = this.id;
+        this.className == null ? '' : newElement.className = this.className;
+        if(attrInfo) {
+            attrInfo.forEach((attr) => {
+                newElement.setAttribute(attr.type, attr.payload.content)
+                if(attr?.payload?.addString) newElement.textContent = attr.payload.addString;
+                if(attr?.payload?.addValue) newElement.value = attr.payload.addValue;
+            })
+        }
         return newElement;
     }
 }
