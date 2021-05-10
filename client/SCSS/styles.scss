@@ -1,3 +1,7 @@
+$padding__Default: 12px;
+$margin__Default: 0 auto;
+$borderRad__Default: 24px;
+
 * {
     padding: 0;
     margin: 0;
@@ -8,9 +12,71 @@ body {
     background-color: rgb(50, 50, 50);
 }
 
+.app-head {
+    font-size: 64px;
+    text-align: center;
+    font-style: italic;
+}
+
 .prim-cont {
+    display: flex;
+    flex-direction: column;
     width: 90%;
     height: 100vh;
-    margin: auto;
+    margin: $margin__Default;
     background-color: rgb(75, 75, 75);
+    .mem-form {
+        display: grid;
+        grid: auto / 50% 50%;
+        width: 75%;
+        margin: 5% auto 0;
+        flex: 0.25;
+        .form-label {
+            font-size: 28px;
+            text-align: center;
+        }
+        .form-inp {
+            width: 75%;
+            max-height: 50%;
+            border-radius: $borderRad__Default;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            padding-left: $padding__Default;
+            &:focus {
+                box-shadow: 0px 0px 4px 2px rgb(100, 100, 250);
+            }
+        }
+        .sub-btn {
+            background-color: rgb(15, 90, 190);
+            color: white;
+            font-size: 28px;
+            letter-spacing: 4px;
+            grid-area: auto / 1 / auto / span 2;
+            width: 33%;
+            max-height: 50%;
+            margin: $margin__Default;
+            border-radius: $borderRad__Default;
+            border: none;
+            box-shadow: 0px 0px 6px 2px rgb(60, 60, 240);
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    .mem-cont {
+        flex: 0.65;
+        width: 75%;
+        margin: $margin__Default;
+        border: 1px solid black;
+        .mem-div, .head-cont {
+            display: grid;
+            grid: auto / 25% 25% 25% 25%;
+            text-align: center;
+            padding: $padding__Default;
+        }
+        .member-info {
+            font-size: 24px;
+        }
+    }
 }
