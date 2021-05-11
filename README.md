@@ -21,7 +21,7 @@ _Download packages.json file_
 `npm install` _to install required modules_
 
 `npm run server` to run server on port 5000 using nodemon
-OR
+  OR  
 `npm start` to run server on port 5000 normally
 
 _Open a browser, and visit_ __http://localhost:5000__ _to view the application_
